@@ -32,17 +32,42 @@ if (navMenu) {
 }
 
 /**
- * Smooth scroll handling for anchor links
+ * Smooth scroll handling for anchor links with custom duration
  * Prevents default link behavior and scrolls smoothly to target sections
+ * Duration: 1000ms for slow, noticeable animation
  */
+function smoothScrollToElement(element, duration = 1000) {
+  const startPosition = window.scrollY;
+  const targetPosition = element.getBoundingClientRect().top + window.scrollY;
+  const distance = targetPosition - startPosition;
+  let start = null;
+
+  function animation(currentTime) {
+    if (start === null) start = currentTime;
+    const elapsed = currentTime - start;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // Easing function for smooth deceleration
+    const easeProgress = progress < 0.5
+      ? 2 * progress * progress
+      : -1 + (4 - 2 * progress) * progress;
+
+    window.scrollTo(0, startPosition + distance * easeProgress);
+
+    if (elapsed < duration) {
+      requestAnimationFrame(animation);
+    }
+  }
+
+  requestAnimationFrame(animation);
+}
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     const href = this.getAttribute("href");
     if (href !== "#" && document.querySelector(href)) {
       e.preventDefault();
-      document.querySelector(href).scrollIntoView({
-        behavior: "smooth",
-      });
+      smoothScrollToElement(document.querySelector(href), 1200);
     }
   });
 });

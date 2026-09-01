@@ -531,6 +531,8 @@ footer {
     opacity: 0;
     transition: all 0.3s ease;
     z-index: 99;
+    display: flex;
+    justify-content: center;
   }
 
   nav.active {
@@ -542,10 +544,15 @@ footer {
     flex-direction: column;
     gap: 0;
     padding: 20px 0;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
   }
 
   nav li {
     border-bottom: 1px solid #d4c5bd;
+    width: 100%;
+    text-align: center;
   }
 
   nav li:last-child {
@@ -556,6 +563,7 @@ footer {
     display: block;
     padding: 16px 20px;
     font-size: 13px;
+    text-align: center;
   }
 
   /* HERO */
