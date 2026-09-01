@@ -1,52 +1,970 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edona Hair Salon</title>
-  </head>
-  <body>
-    <header>
-      <h1>Edona Hair Salon</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edona Hair Salon | Precision Cuts & Dynamic Color in Honolulu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F9F7F4;
+      color: #351D14;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      background-color: #F9F7F4;
+      border-bottom: 1px solid #D4C5BD;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: #351D14;
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 48px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #351D14;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: #D4C5BD;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 0.5px;
+      background-color: #351D14;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ========== HERO SECTION ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 40px;
+      background-color: #F9F7F4;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(212, 197, 189, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(212, 197, 189, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #351D14;
+      margin-bottom: 32px;
+      line-height: 1.2;
+    }
+
+    .hero .tagline {
+      font-size: 24px;
+      color: #351D14;
+      margin-bottom: 48px;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      line-height: 1.5;
+    }
+
+    .hero .credentials {
+      font-size: 14px;
+      color: #D1D1CC;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      font-weight: 500;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 18px 48px;
+      background-color: #351D14;
+      color: #F9F7F4;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 1px solid #351D14;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #F9F7F4;
+      color: #351D14;
+    }
+
+    /* ========== ABOUT SECTION ========== */
+    .about {
+      padding: 120px 40px;
+      background-color: #F9F7F4;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 32px;
+      color: #351D14;
+    }
+
+    .about-text {
+      font-size: 16px;
+      color: #351D14;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .about-text:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-image {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background-color: #D4C5BD;
+      border: 1px solid #D4C5BD;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #D1D1CC;
+      font-size: 14px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* ========== SERVICES SECTION ========== */
+    .services {
+      padding: 120px 40px;
+      background-color: #F9F7F4;
+    }
+
+    .services-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .services h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 80px;
+      color: #351D14;
+      text-align: center;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px;
+    }
+
+    .service-category {
+      border-top: 1px solid #D4C5BD;
+      padding-top: 40px;
+    }
+
+    .service-category h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 32px;
+      color: #351D14;
+      text-transform: uppercase;
+      font-size: 24px;
+    }
+
+    .service-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+
+    .service-table th {
+      border-bottom: 1px solid #D4C5BD;
+      padding: 12px 0;
+      text-align: left;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #351D14;
+    }
+
+    .service-table td {
+      border-bottom: 1px solid #D4C5BD;
+      padding: 16px 0;
+      font-size: 14px;
+      color: #351D14;
+    }
+
+    .service-table td:nth-child(n+2) {
+      text-align: right;
+    }
+
+    .service-table th:nth-child(n+2) {
+      text-align: right;
+    }
+
+    .service-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ========== GALLERY SECTION ========== */
+    .gallery {
+      padding: 120px 40px;
+      background-color: #F9F7F4;
+    }
+
+    .gallery-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .gallery h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 80px;
+      color: #351D14;
+      text-align: center;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .gallery-item {
+      aspect-ratio: 3/4;
+      background-color: #D4C5BD;
+      border: 1px solid #D4C5BD;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #D1D1CC;
+      font-size: 14px;
+      text-align: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ========== TESTIMONIALS SECTION ========== */
+    .testimonials {
+      padding: 120px 40px;
+      background-color: #F9F7F4;
+    }
+
+    .testimonials-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .testimonials h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 80px;
+      color: #351D14;
+      text-align: center;
+    }
+
+    .testimonial-item {
+      margin-bottom: 64px;
+      text-align: center;
+    }
+
+    .testimonial-text {
+      font-size: 18px;
+      color: #351D14;
+      margin-bottom: 16px;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-size: 13px;
+      color: #D1D1CC;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background-color: #351D14;
+      color: #F9F7F4;
+      padding: 80px 40px;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 80px;
+    }
+
+    .footer-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      color: #F9F7F4;
+    }
+
+    .footer-section p {
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 12px;
+      color: #D4C5BD;
+    }
+
+    .footer-section a {
+      color: #D4C5BD;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: #F9F7F4;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #D4C5BD;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background-color: #D4C5BD;
+      color: #351D14;
+    }
+
+    .social-links svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 80px auto 0;
+      padding-top: 40px;
+      border-top: 1px solid #D4C5BD;
+      text-align: center;
+      font-size: 12px;
+      color: #D1D1CC;
+    }
+
+    /* ========== RESPONSIVE DESIGN ========== */
+    @media (max-width: 1024px) {
+      .header-container {
+        padding: 20px 30px;
+      }
+
+      nav ul {
+        gap: 32px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero .tagline {
+        font-size: 18px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 22px;
+        letter-spacing: 2px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 60px 20px;
+        min-height: 80vh;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+        margin-bottom: 24px;
+      }
+
+      .hero .tagline {
+        font-size: 16px;
+        margin-bottom: 32px;
+      }
+
+      .about {
+        padding: 60px 20px;
+      }
+
+      .about h2 {
+        font-size: 32px;
+      }
+
+      .services {
+        padding: 60px 20px;
+      }
+
+      .services h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+
+      .gallery {
+        padding: 60px 20px;
+      }
+
+      .gallery h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials {
+        padding: 60px 20px;
+      }
+
+      .testimonials h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+
+      footer {
+        padding: 40px 20px;
+      }
+
+      .footer-container {
+        gap: 30px;
+      }
+
+      .footer-section h3 {
+        font-size: 18px;
+        margin-bottom: 16px;
+      }
+
+      .footer-bottom {
+        margin-top: 40px;
+        padding-top: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 16px;
+      }
+
+      nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 16px;
+      }
+
+      .hero .tagline {
+        font-size: 14px;
+      }
+
+      .btn-primary {
+        padding: 14px 32px;
+        font-size: 12px;
+      }
+
+      .about-grid {
+        gap: 32px;
+      }
+
+      .about h2 {
+        font-size: 24px;
+      }
+
+      .service-category h3 {
+        font-size: 18px;
+      }
+
+      .service-table {
+        font-size: 12px;
+      }
+
+      .service-table td,
+      .service-table th {
+        padding: 8px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <a href="#home" class="logo">EDONA</a>
       <nav>
         <ul>
           <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <section id="home">
-        <h2>Welcome to Edona Hair Salon</h2>
-        <p>We offer the best hair care services in town.</p>
-      </section>
+  <main>
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Edona Hair Salon</h1>
+        <p class="tagline">Specializing in precision cuts, dynamic color, and curly hair that feels completely you</p>
+        <p class="credentials">Vidal Sassoon-trained • Redken Artist • Now booking in Honolulu</p>
+        <a href="book.html" class="btn-primary">Book Now</a>
+      </div>
+    </section>
 
-      <section id="services">
-        <h2>Our Services</h2>
-        <ul>
-          <li>Haircuts</li>
-          <li>Coloring</li>
-          <li>Styling</li>
-          <li>Extensions</li>
-        </ul>
-      </section>
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+      <div class="about-grid">
+        <div>
+          <h2>Hi! I'm Edona.</h2>
+          <p class="about-text">I'm a second-generation stylist raised in my mom's hair salon in Austria. Watching her, I learned that truly great hair is more than just technique. It's about listening, connecting, and ensuring every client feels genuinely cared for.</p>
+          <p class="about-text">I'm a Vidal Sassoon-trained stylist and a Redken Artist specializing in precision haircuts, dimensional color, and curly hair. Each appointment is a collaboration to create a look that feels effortless, elevated, and true to you.</p>
+          <p class="about-text">Great hair has the power to reveal self-confidence, and helping clients feel that confidence is what I love most about my work.</p>
+          <p class="about-text">When I'm not in the salon, you can find me outdoors, staying active, and spending time with friends.</p>
+        </div>
+        <div class="about-image">
+          <span>Professional photo placeholder</span>
+        </div>
+      </div>
+    </section>
 
-      <section id="about">
-        <h2>About Us</h2>
-        <p>Learn more about our salon and our team of professionals.</p>
-      </section>
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services">
+      <div class="services-container">
+        <h2>Services</h2>
+        <div class="services-grid">
+          <!-- COLOR SERVICES -->
+          <div class="service-category">
+            <h3>Color</h3>
+            <table class="service-table">
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Price</th>
+                  <th>Total</th>
+                  <th>Apply</th>
+                  <th>Process</th>
+                  <th>Finish</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Single Process Retouch</td>
+                  <td>$130+</td>
+                  <td>1h 45m</td>
+                  <td>30 min</td>
+                  <td>30 min</td>
+                  <td>45 min</td>
+                </tr>
+                <tr>
+                  <td>Single Process Color</td>
+                  <td>$190+</td>
+                  <td>2h</td>
+                  <td>45 min</td>
+                  <td>30 min</td>
+                  <td>45 min</td>
+                </tr>
+                <tr>
+                  <td>Ammonia-Free Retouch</td>
+                  <td>$150+</td>
+                  <td>1h 45m</td>
+                  <td>30 min</td>
+                  <td>30 min</td>
+                  <td>45 min</td>
+                </tr>
+                <tr>
+                  <td>Ammonia-Free Color</td>
+                  <td>$210+</td>
+                  <td>2h</td>
+                  <td>45 min</td>
+                  <td>30 min</td>
+                  <td>45 min</td>
+                </tr>
+                <tr>
+                  <td>Double Process</td>
+                  <td>$265+</td>
+                  <td>2h 30m</td>
+                  <td>1h</td>
+                  <td>45 min</td>
+                  <td>45 min</td>
+                </tr>
+                <tr>
+                  <td>Partial Highlights</td>
+                  <td>$230+</td>
+                  <td>2h 30m</td>
+                  <td>45 min</td>
+                  <td>45 min</td>
+                  <td>1h</td>
+                </tr>
+                <tr>
+                  <td>Full Highlights</td>
+                  <td>$280+</td>
+                  <td>2h 45m</td>
+                  <td>1h</td>
+                  <td>45 min</td>
+                  <td>1h</td>
+                </tr>
+                <tr>
+                  <td>Partial Balayage</td>
+                  <td>$310+</td>
+                  <td>2h 45m</td>
+                  <td>45 min</td>
+                  <td>45 min</td>
+                  <td>1h</td>
+                </tr>
+                <tr>
+                  <td>Full Balayage</td>
+                  <td>$355+</td>
+                  <td>3h</td>
+                  <td>1h</td>
+                  <td>45 min</td>
+                  <td>1h 15m</td>
+                </tr>
+                <tr>
+                  <td>Toner Add-on</td>
+                  <td>$60+</td>
+                  <td>15 min</td>
+                  <td>—</td>
+                  <td>—</td>
+                  <td>—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-      <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Get in touch with us for appointments or inquiries.</p>
-      </section>
-    </main>
+          <!-- HAIRCUTS & TREATMENTS -->
+          <div class="service-category">
+            <h3>Haircuts & Treatments</h3>
+            <table class="service-table">
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Duration</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Haircut</td>
+                  <td>1h</td>
+                  <td>$130</td>
+                </tr>
+                <tr>
+                  <td>Keratin Treatment</td>
+                  <td>2h 45 min</td>
+                  <td>$300</td>
+                </tr>
+                <tr>
+                  <td>Fusio Dose Treatment</td>
+                  <td>Add-on</td>
+                  <td>$43</td>
+                </tr>
+                <tr>
+                  <td>Premiere Treatment</td>
+                  <td>Add-on</td>
+                  <td>$50</td>
+                </tr>
+              </tbody>
+            </table>
 
-    <footer>
+            <h3 style="margin-top: 48px;">Eyebrows</h3>
+            <table class="service-table">
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Duration</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Brow Shaping</td>
+                  <td>15 min</td>
+                  <td>$40</td>
+                </tr>
+                <tr>
+                  <td>Brow Tint Add-on</td>
+                  <td>15 min</td>
+                  <td>$25</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="gallery">
+      <div class="gallery-container">
+        <h2>Portfolio</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <span>Gallery image 1</span>
+          </div>
+          <div class="gallery-item">
+            <span>Gallery image 2</span>
+          </div>
+          <div class="gallery-item">
+            <span>Gallery image 3</span>
+          </div>
+          <div class="gallery-item">
+            <span>Gallery image 4</span>
+          </div>
+          <div class="gallery-item">
+            <span>Gallery image 5</span>
+          </div>
+          <div class="gallery-item">
+            <span>Gallery image 6</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials" class="testimonials">
+      <div class="testimonials-container">
+        <h2>Testimonials</h2>
+        <div class="testimonial-item">
+          <p class="testimonial-text">"Edona transformed my hair and restored my confidence. Her attention to detail and genuine care for her clients is unmatched."</p>
+          <p class="testimonial-author">— Client</p>
+        </div>
+        <div class="testimonial-item">
+          <p class="testimonial-text">"Working with Edona felt like a true collaboration. She listened to my vision and delivered results that exceeded my expectations."</p>
+          <p class="testimonial-author">— Client</p>
+        </div>
+        <div class="testimonial-item">
+          <p class="testimonial-text">"The precision of her cuts and the expertise with color is exceptional. I wouldn't trust my hair to anyone else."</p>
+          <p class="testimonial-author">— Client</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-container">
+      <!-- HOURS -->
+      <div class="footer-section">
+        <h3>Hours</h3>
+        <p><strong>Monday</strong></p>
+        <p>9am – 7pm</p>
+        <p style="margin-top: 12px;"><strong>Wednesday</strong></p>
+        <p>9am – 6pm</p>
+        <p style="margin-top: 12px;"><strong>Thursday – Saturday</strong></p>
+        <p>9am – 7pm</p>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p><a href="mailto:contact@edonahair.com">contact@edonahair.com</a></p>
+        <p><a href="tel:+18087727285">+1 (808) 772-7285</a></p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/edonahair/" target="_blank" rel="noopener noreferrer" title="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <circle cx="17.5" cy="6.5" r="1.5"></circle>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- LOCATION -->
+      <div class="footer-section">
+        <h3>Location</h3>
+        <p>Salon Blanc</p>
+        <p>1288 Ala Moana Blvd., Suite 100</p>
+        <p>Honolulu, HI 96814</p>
+        <p style="margin-top: 16px;"><a href="https://www.google.com/maps/place/1288+Ala+Moana+Blvd,+Suite+100,+Honolulu,+HI+96814/" target="_blank" rel="noopener noreferrer">View on Maps</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
       <p>&copy; 2026 Edona Hair Salon. All rights reserved.</p>
-    </footer>
-  </body>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll handling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Header background on scroll
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 0) {
+        header.style.boxShadow = '0 1px 0 rgba(53, 29, 20, 0.1)';
+      } else {
+        header.style.boxShadow = 'none';
+      }
+    });
+  </script>
+</body>
+
 </html>
