@@ -126,7 +126,7 @@ nav {
   align-items: center;
   text-align: center;
   padding: 80px 40px;
-  background-color: #f9f7f4;
+  background-color: #351d14;
   position: relative;
   overflow: hidden;
 }
@@ -141,12 +141,12 @@ nav {
   background:
     radial-gradient(
       circle at 20% 50%,
-      rgba(212, 197, 189, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 80% 80%,
-      rgba(212, 197, 189, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 0%,
       transparent 50%
     );
   pointer-events: none;
@@ -163,14 +163,14 @@ nav {
   font-size: 72px;
   font-weight: 600;
   letter-spacing: 2px;
-  color: #351d14;
+  color: #f9f7f4;
   margin-bottom: 32px;
   line-height: 1.2;
 }
 
 .hero .tagline {
   font-size: 24px;
-  color: #351d14;
+  color: #f9f7f4;
   margin-bottom: 48px;
   font-weight: 300;
   letter-spacing: 0.5px;
@@ -179,7 +179,7 @@ nav {
 
 .hero .credentials {
   font-size: 13px;
-  color: #351d14;
+  color: #f9f7f4;
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 48px;
@@ -190,14 +190,14 @@ nav {
 .btn-primary {
   display: inline-block;
   padding: 18px 48px;
-  background-color: #351d14;
-  color: #f9f7f4;
+  background-color: #f9f7f4;
+  color: #351d14;
   text-decoration: none;
   font-size: 14px;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 600;
-  border: 1px solid #351d14;
+  border: 1px solid #f9f7f4;
   transition: all 0.3s ease;
   cursor: pointer;
   border: none;
@@ -205,8 +205,9 @@ nav {
 }
 
 .btn-primary:hover {
-  background-color: #f9f7f4;
+  background-color: #d4c5bd;
   color: #351d14;
+  border-color: #d4c5bd;
 }
 
 /* ========== ABOUT SECTION ========== */
@@ -345,7 +346,7 @@ nav {
 /* ========== GALLERY SECTION ========== */
 .gallery {
   padding: 120px 40px;
-  background-color: #f9f7f4;
+  background-color: #351d14;
 }
 
 .gallery-container {
@@ -359,7 +360,7 @@ nav {
   font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 80px;
-  color: #351d14;
+  color: #f9f7f4;
   text-align: center;
 }
 
@@ -376,7 +377,7 @@ nav {
   justify-content: center;
   overflow: hidden;
   border-radius: 8px;
-  border: 8px solid #351d14;
+  border: 8px solid #f9f7f4;
 }
 
 .gallery-item img {
@@ -391,6 +392,7 @@ footer {
   background-color: #351d14;
   color: #f9f7f4;
   padding: 80px 40px;
+  border-top: 2px solid #d4c5bd;
 }
 
 .footer-container {
@@ -758,6 +760,7 @@ footer {
   .gallery-item {
     aspect-ratio: 3/4;
     border-radius: 6px;
+    border: 6px solid #f9f7f4;
   }
 
   /* FOOTER */
