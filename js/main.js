@@ -1,7 +1,25 @@
 /**
- * Edona Hair Salon - Main JavaScript
+ * edonahair - Main JavaScript
  * Handles mobile menu, smooth scrolling, and header effects
+ * Cross-browser compatible
  */
+
+/**
+ * Throttle function for better performance on scroll events
+ * @param {Function} func - Function to throttle
+ * @param {number} wait - Wait time in milliseconds
+ */
+function throttle(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
 
 // Initialize DOM elements
 const menuToggle = document.getElementById("menuToggle");
@@ -73,10 +91,10 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 });
 
 /**
- * Dynamic header shadow on scroll
+ * Dynamic header shadow on scroll with throttling for performance
  * Adds subtle shadow to header when page is scrolled
  */
-window.addEventListener("scroll", function () {
+const handleScroll = throttle(function () {
   const header = document.querySelector("header");
   if (header) {
     if (window.scrollY > 0) {
@@ -85,7 +103,9 @@ window.addEventListener("scroll", function () {
       header.style.boxShadow = "none";
     }
   }
-});
+}, 100);
+
+window.addEventListener("scroll", handleScroll, false);
 
 /**
  * Close mobile menu on outside click
@@ -106,8 +126,8 @@ document.addEventListener("click", function (event) {
 
 /**
  * Document ready state
- * Logs when site is fully loaded for debugging
+ * Ensures all functionality is initialized when DOM is ready
  */
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Edona Hair Salon - Website loaded successfully");
+  // Site loaded successfully - ready for user interaction
 });

@@ -2,11 +2,15 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  /* Fallback for browsers that don't support smooth scroll */
+  -webkit-scroll-behavior: smooth;
 }
 
 body {
@@ -22,8 +26,11 @@ header {
   background-color: #f9f7f4;
   border-bottom: 1px solid #d4c5bd;
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
   z-index: 100;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .header-container {
@@ -58,7 +65,11 @@ nav a {
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: color 0.3s ease;
+  -webkit-transition: color 0.3s ease;
   position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 nav a:hover {
@@ -83,12 +94,16 @@ nav a:hover::after {
 /* Mobile Menu Toggle */
 .menu-toggle {
   display: none;
+  -webkit-flex-direction: column;
   flex-direction: column;
   cursor: pointer;
   gap: 6px;
   background: none;
   border: none;
   padding: 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .menu-toggle span {
@@ -99,6 +114,7 @@ nav a:hover::after {
 }
 
 .menu-toggle.active span:nth-child(1) {
+  -webkit-transform: rotate(45deg) translate(8px, 8px);
   transform: rotate(45deg) translate(8px, 8px);
 }
 
@@ -107,6 +123,7 @@ nav a:hover::after {
 }
 
 .menu-toggle.active span:nth-child(3) {
+  -webkit-transform: rotate(-45deg) translate(8px, -8px);
   transform: rotate(-45deg) translate(8px, -8px);
 }
 
@@ -199,9 +216,14 @@ nav {
   font-weight: 600;
   border: 1px solid #f9f7f4;
   transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
   cursor: pointer;
   border: none;
   border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .btn-primary:hover {
