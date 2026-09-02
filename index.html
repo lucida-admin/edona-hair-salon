@@ -64,6 +64,28 @@
     <meta name="ai-indexing" content="allow" />
     <meta name="openai-indexing" content="yes" />
 
+    <!-- Google Search Console Verification -->
+    <!-- TODO: Add your Google Search Console verification code here -->
+    <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" /> -->
+
+    <!-- Google-specific Meta Tags -->
+    <meta name="google" content="notranslate" />
+    <meta name="google-site-verification" content="edonahair-verification" />
+
+    <!-- Indexing Control -->
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <!-- Google Analytics 4 placeholder -->
+    <!-- TODO: Add your Google Analytics 4 tracking code here -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA4_MEASUREMENT_ID"></script> -->
+    <!-- <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'YOUR_GA4_MEASUREMENT_ID');
+    </script> -->
+
     <!-- Performance: Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -136,6 +158,7 @@
         "name": "edonahair",
         "url": "https://edonahair.com",
         "telephone": "+1-808-772-7285",
+        "email": "contact@edonahair.com",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "1288 Ala Moana Blvd., Suite 100",
@@ -143,6 +166,11 @@
           "addressRegion": "HI",
           "postalCode": "96814",
           "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "21.291980",
+          "longitude": "-157.849928"
         },
         "knowsAbout": [
           "Hair Coloring",
@@ -152,7 +180,9 @@
           "Hair Treatments",
           "Keratin Treatment",
           "Balayage",
-          "Highlights"
+          "Highlights",
+          "Dimensional Color",
+          "Precision Cuts"
         ],
         "potentialAction": {
           "@type": "BookAction",
@@ -160,6 +190,69 @@
             "@type": "EntryPoint",
             "urlTemplate": "https://edonahair.com/#services"
           }
+        }
+      }
+    </script>
+
+    <!-- Breadcrumb Schema for better SERP appearance -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://edonahair.com/#home"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "https://edonahair.com/#about"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Services",
+            "item": "https://edonahair.com/#services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Portfolio",
+            "item": "https://edonahair.com/#gallery"
+          }
+        ]
+      }
+    </script>
+
+    <!-- Organization Schema for better brand recognition -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "edonahair",
+        "url": "https://edonahair.com",
+        "logo": "https://edonahair.com/assets/imgs/EDONA_edited.avif",
+        "description": "Professional hair salon specializing in precision haircuts, dimensional color treatments, and curly hair care in Honolulu.",
+        "sameAs": [
+          "https://www.instagram.com/edonahair/"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1288 Ala Moana Blvd., Suite 100",
+          "addressLocality": "Honolulu",
+          "addressRegion": "HI",
+          "postalCode": "96814",
+          "addressCountry": "US"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Service",
+          "telephone": "+1-808-772-7285",
+          "email": "contact@edonahair.com"
         }
       }
     </script>

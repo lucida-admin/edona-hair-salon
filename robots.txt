@@ -1,100 +1,36 @@
-# Edona Hair Salon - Robots.txt
-# This file controls search engine crawler access and provides SEO directives
+﻿# edonahair - Robots.txt for Search Engine Optimization
+# This file instructs search engine crawlers how to interact with the website
 
-# Allow all crawlers to access the site
+# Default rules for all bots
 User-agent: *
 Allow: /
+Disallow: /assets/temp/
+Disallow: /admin/
+Disallow: /*.php$
+Disallow: /*?
+Disallow: *?replytocom=
+Crawl-delay: 1
 
-# Specific directives for major search engines
+# Allow specific bots to crawl faster
 User-agent: Googlebot
 Allow: /
+Disallow: /assets/temp/
 Crawl-delay: 0
-
-User-agent: Googlebot-Image
-Allow: /
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 0
+Disallow: /assets/temp/
+Crawl-delay: 1
 
-# AI/LLM crawlers - Optimize for AI SEO
-User-agent: GPTBot
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-# Other beneficial crawlers
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-User-agent: MJ12bot
-Allow: /
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
 
 User-agent: SemrushBot
-Allow: /
-Crawl-delay: 1
-
-User-agent: AhrefsBot
-Allow: /
-Crawl-delay: 1
-
-# Block specific crawlers that consume resources
-User-agent: MauiBot
 Disallow: /
-
-User-agent: SurveillanceBot
-Disallow: /
-
-# Disallow private/admin paths (if any)
-Disallow: /admin/
-Disallow: /private/
-Disallow: /.env
-
-# Allow specific files
-Allow: /styles/
-Allow: /js/
-Allow: /assets/
 
 # Sitemap location
 Sitemap: https://edonahair.com/sitemap.xml
 
-# Crawl-delay for all crawlers (in seconds)
-Crawl-delay: 0
-
-# Request-rate for all crawlers (requests per second)
-Request-rate: 10/1s
-
-# Cache specifications
-Cache-Control: max-age=604800
-
-# Additional SEO directives
-# Host preference for canonicalization
-Host: https://edonahair.com
-
-# Allow AJAX crawling
-Allow: /?_escaped_fragment_=
-
-# Clean URL preference
-Disallow: /*?*
-Allow: /
-Allow: /#
-
-# Ensure indexing of key pages
-Allow: /index.html
-Allow: /book.html
-Allow: /assets/
-Allow: /styles/
-Allow: /js/
+# Mobile-friendly indication
+# The site is mobile-responsive, no separate mobile sitemap needed

@@ -1,35 +1,12 @@
-# Edona Hair Salon - Apache Configuration
-# SEO, Performance, and Security Optimization
-
-# ========== ENABLE MOD_REWRITE ==========
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-
-  # Remove .html extension from URLs
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^([^\.]+)$ $1.html [NC,L]
-
-  # Redirect www to non-www
-  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
-
-  # Force HTTPS
-  RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-</IfModule>
-
-# ========== GZIP COMPRESSION ==========
+﻿# Enable GZIP compression
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml+rss
-  AddEncoding deflate js css svg
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 </IfModule>
 
-# ========== BROWSER CACHING ==========
+# Enable browser caching
 <IfModule mod_expires.c>
   ExpiresActive On
-
+  
   # Images
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/gif "access plus 1 year"
@@ -37,123 +14,73 @@
   ExpiresByType image/webp "access plus 1 year"
   ExpiresByType image/avif "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
-
-  # CSS and JavaScript
+  
+  # CSS
   ExpiresByType text/css "access plus 1 month"
+  
+  # JavaScript
   ExpiresByType application/javascript "access plus 1 month"
   ExpiresByType text/javascript "access plus 1 month"
-
+  
   # Fonts
   ExpiresByType font/ttf "access plus 1 year"
   ExpiresByType font/otf "access plus 1 year"
   ExpiresByType font/woff "access plus 1 year"
   ExpiresByType font/woff2 "access plus 1 year"
   ExpiresByType application/font-woff "access plus 1 year"
-
+  
   # HTML
-  ExpiresByType text/html "access plus 1 week"
-
+  ExpiresByType text/html "access plus 2 hours"
+  
   # Default
   ExpiresDefault "access plus 2 days"
 </IfModule>
 
-# ========== CACHE CONTROL HEADERS ==========
+# Set cache control headers
 <IfModule mod_headers.c>
-  # Cache images
-  <FilesMatch "\.(jpg|jpeg|png|gif|ico|webp|avif|svg)$">
+  # Cache images for 1 year
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|svg)$">
     Header set Cache-Control "max-age=31536000, public"
   </FilesMatch>
-
-  # Cache CSS and JavaScript
+  
+  # Cache CSS and JS for 1 month
   <FilesMatch "\.(css|js)$">
     Header set Cache-Control "max-age=2592000, public"
   </FilesMatch>
-
-  # Cache fonts
-  <FilesMatch "\.(woff|woff2|ttf|otf)$">
+  
+  # Cache fonts for 1 year
+  <FilesMatch "\.(ttf|otf|woff|woff2)$">
     Header set Cache-Control "max-age=31536000, public"
   </FilesMatch>
-
-  # No cache for HTML
+  
+  # Don't cache HTML
   <FilesMatch "\.html?$">
-    Header set Cache-Control "max-age=604800, public, must-revalidate"
+    Header set Cache-Control "max-age=7200, must-revalidate"
   </FilesMatch>
-
-  # Security Headers
-  Header set X-Frame-Options "SAMEORIGIN"
+  
+  # Add security headers
   Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
   Header set X-XSS-Protection "1; mode=block"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
-
-  # Remove server header
-  Header unset Server
-  Header unset X-Powered-By
 </IfModule>
 
-# ========== BLOCK ACCESS TO SENSITIVE FILES ==========
+# Enforce HTTPS
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  
+  # Remove www from URL
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Prevent access to sensitive files
 <FilesMatch "^\.">
-  <IfModule mod_authz_core.c>
-    Require all denied
-  </IfModule>
-  <IfModule !mod_authz_core.c>
-    Order allow,deny
-    Deny from all
-  </IfModule>
+  Deny from all
 </FilesMatch>
 
-# Block access to .env files
-<FilesMatch "^\.env">
-  <IfModule mod_authz_core.c>
-    Require all denied
-  </IfModule>
-  <IfModule !mod_authz_core.c>
-    Order allow,deny
-    Deny from all
-  </IfModule>
+<FilesMatch "\.(env|json|lock)$">
+  Deny from all
 </FilesMatch>
-
-# ========== PREVENT DIRECTORY LISTING ==========
-Options -Indexes
-
-# ========== SET CHARSET ==========
-<IfModule mod_charset.c>
-  AddCharset UTF-8 .html .css .js .xml .json
-</IfModule>
-
-# ========== MIME TYPES ==========
-<IfModule mod_mime.c>
-  AddType application/json .json
-  AddType video/mp4 .mp4
-  AddType image/avif .avif
-  AddType image/webp .webp
-  AddType font/woff2 .woff2
-  AddType application/font-woff .woff
-</IfModule>
-
-# ========== SEO OPTIMIZATION ==========
-# Canonical URL handling
-Header set Link "<https://edonahair.com>; rel=\"canonical\""
-
-# Sitemap and robots.txt access
-<Files "sitemap.xml">
-  <IfModule mod_headers.c>
-    Header set Content-Type "application/xml"
-  </IfModule>
-</Files>
-
-<Files "robots.txt">
-  <IfModule mod_headers.c>
-    Header set Content-Type "text/plain"
-  </IfModule>
-</Files>
-
-# ========== PERFORMANCE OPTIMIZATION ==========
-# Enable ETags
-<IfModule mod_headers.c>
-  Header set ETag "W/\"%eTmH--%{TIME_YEAR}%{TIME_MON}%{TIME_MDAY}%{TIME_HOUR}%{TIME_MIN}%{TIME_SEC}\""
-</IfModule>
-
-# Keep-Alive
-<IfModule mod_headers.c>
-  Header set Connection keep-alive
-</IfModule>
