@@ -1,3 +1,53 @@
+/* ========== FONTS (Self-hosted) ========== */
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/assets/font/CormorantGaramond-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/assets/font/CormorantGaramond-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/assets/font/CormorantGaramond-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/font/Inter-300.woff2") format("woff2");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/font/Inter-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/font/Inter-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/font/Inter-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
 /* ========== GLOBAL STYLES ========== */
 * {
   margin: 0;

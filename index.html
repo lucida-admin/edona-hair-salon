@@ -17,7 +17,7 @@
       name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
-    <meta name="canonical" href="https://edonahair.com/" />
+    <link rel="canonical" href="https://edonahair.com/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="business.business" />
@@ -29,10 +29,6 @@
     <meta
       property="og:description"
       content="Expert hair salon specializing in precision cuts, dynamic color treatments, and curly hair care. Vidal Sassoon-trained stylist. Book online at Salon Blanc, Honolulu."
-    />
-    <meta
-      property="og:image"
-      content="https://edonahair.com/assets/imgs/EDONA_edited.avif"
     />
     <meta property="og:site_name" content="edonahair" />
 
@@ -46,10 +42,6 @@
     <meta
       name="twitter:description"
       content="Expert hair salon specializing in precision cuts, dynamic color treatments, and curly hair care."
-    />
-    <meta
-      name="twitter:image"
-      content="https://edonahair.com/assets/imgs/EDONA_edited.avif"
     />
 
     <!-- Additional Meta Tags -->
@@ -76,31 +68,35 @@
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HK9RZRN4Y2"></script>
+    <!-- Google Analytics (deferred to window.load) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-HK9RZRN4Y2');
+      function initGA4() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-HK9RZRN4Y2';
+        document.head.appendChild(script);
+        gtag('js', new Date());
+        gtag('config', 'G-HK9RZRN4Y2');
+      }
+      if (document.readyState === 'loading') {
+        window.addEventListener('load', initGA4);
+      } else {
+        initGA4();
+      }
     </script>
 
-    <!-- Performance: Resource Hints -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <!-- Performance: Preload self-hosted fonts -->
+    <link rel="preload" as="font" type="font/woff2" href="/assets/font/CormorantGaramond-600.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/assets/font/Inter-400.woff2" crossorigin />
 
     <!-- Favicon and Apple Touch Icon -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-family='serif' font-weight='bold' fill='%23351d14'>E</text></svg>" />
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%23351d14' width='180' height='180'/><text y='130' x='90' text-anchor='middle' font-size='100' font-family='serif' font-weight='bold' fill='%23f9f7f4'>E</text></svg>" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-family='serif' font-weight='bold' fill='%23351d14'>E</text></svg>" />
+    <link rel="apple-touch-icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%23351d14' width='180' height='180'/><text y='130' x='90' text-anchor='middle' font-size='100' font-family='serif' font-weight='bold' fill='%23f9f7f4'>E</text></svg>" />
 
     <title>edonahair | Precision Cuts & Dynamic Color in Honolulu</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <!-- External CSS -->
+    <!-- External CSS (includes self-hosted fonts) -->
     <link rel="stylesheet" href="styles/main.css" />
 
     <!-- Schema.org Structured Data -->
@@ -109,7 +105,6 @@
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "edonahair",
-        "image": "https://edonahair.com/assets/imgs/EDONA_edited.avif",
         "description": "Professional hair salon specializing in precision haircuts, dimensional color treatments, and curly hair care in Honolulu.",
         "address": {
           "@type": "PostalAddress",
@@ -235,7 +230,6 @@
         "@type": "Organization",
         "name": "edonahair",
         "url": "https://edonahair.com",
-        "logo": "https://edonahair.com/assets/imgs/EDONA_edited.avif",
         "description": "Professional hair salon specializing in precision haircuts, dimensional color treatments, and curly hair care in Honolulu.",
         "sameAs": [
           "https://www.instagram.com/edonahair/"
@@ -257,12 +251,19 @@
       }
     </script>
 
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N7R44NGS');</script>
+    <!-- Google Tag Manager (deferred to window.load) -->
+    <script>
+      function initGTM(){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-N7R44NGS');}
+      if (document.readyState === 'loading') {
+        window.addEventListener('load', initGTM);
+      } else {
+        initGTM();
+      }
+    </script>
     <!-- End Google Tag Manager -->
   </head>
 
@@ -276,7 +277,7 @@
     <header>
       <div class="header-container">
         <a href="#home" class="logo">edonahair</a>
-        <button class="menu-toggle" id="menuToggle">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
           <span></span>
           <span></span>
           <span></span>
@@ -348,6 +349,8 @@
               style="width: 100%; border: none; overflow: hidden"
               scrolling="no"
               id="G7p79NZRAK5zwK5qVTRk_1788235726995"
+              title="Book an appointment at Edona Hair Salon"
+              loading="lazy"
             ></iframe>
           </div>
         </div>
@@ -355,6 +358,7 @@
       <script
         src="https://official.edonahair.com/js/form_embed.js"
         type="text/javascript"
+        defer
       ></script>
 
       <!-- GALLERY SECTION -->

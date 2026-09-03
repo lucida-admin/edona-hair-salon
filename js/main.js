@@ -27,12 +27,14 @@ const navMenu = document.getElementById("navMenu");
 
 /**
  * Mobile menu toggle functionality
- * Toggles active class on menu button and nav menu
+ * Toggles active class on menu button and nav menu, updates aria-expanded for accessibility
  */
 if (menuToggle && navMenu) {
   menuToggle.addEventListener("click", () => {
     menuToggle.classList.toggle("active");
     navMenu.classList.toggle("active");
+    const isExpanded = menuToggle.classList.contains("active");
+    menuToggle.setAttribute("aria-expanded", isExpanded);
   });
 }
 
