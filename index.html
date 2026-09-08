@@ -315,19 +315,22 @@
     <!-- HEADER -->
     <header>
       <div class="header-container">
+        <!-- LEFT: Logo -->
         <a href="#home" class="logo">edonahair</a>
-        <button
-          class="menu-toggle"
-          id="menuToggle"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-          aria-controls="navMenu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <nav id="navMenu">
+
+        <!-- CENTER: Nav Menu -->
+        <nav id="navMenu" class="nav-center">
+          <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="navMenu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
           <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -335,6 +338,14 @@
             <li><a href="#gallery">Gallery</a></li>
           </ul>
         </nav>
+
+        <!-- RIGHT: CTA Button -->
+        <a href="#services" class="btn-nav-cta btn-nav-cta-desktop">Book Now</a>
+      </div>
+
+      <!-- MOBILE: CTA Button Row -->
+      <div class="mobile-cta-row">
+        <a href="#services" class="btn-nav-cta btn-nav-cta-mobile">Book Now</a>
       </div>
     </header>
 
