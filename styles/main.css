@@ -360,6 +360,10 @@ nav {
   flex-shrink: 0;
 }
 
+.nav-cta-item {
+  display: none !important;
+}
+
 .btn-nav-cta-mobile {
   display: none;
 }
@@ -756,7 +760,7 @@ footer {
   }
 
   nav li:last-child {
-    border-bottom: none;
+    border-bottom: 1px solid #d4c5bd;
   }
 
   nav a {
@@ -770,16 +774,16 @@ footer {
     display: none;
   }
 
-  .mobile-cta-row {
-    display: block;
-    padding: 16px 20px;
-    border-top: 1px solid #d4c5bd;
-    text-align: center;
+  /* CTA Button inside nav menu on mobile */
+  .nav-cta-item {
+    display: block !important;
+    border-bottom: none;
+    padding: 12px 20px;
   }
 
-  .btn-nav-cta-mobile {
+  .nav-cta-item .btn-nav-cta-mobile {
     display: inline-block;
-    padding: 12px 32px;
+    padding: 10px 28px;
     font-size: 12px;
     width: auto;
   }
@@ -919,12 +923,8 @@ footer {
     border-top: 1px solid #d4c5bd;
   }
 
-  .mobile-cta-row {
-    padding: 14px 16px;
-  }
-
-  .btn-nav-cta-mobile {
-    padding: 10px 28px;
+  .nav-cta-item .btn-nav-cta-mobile {
+    padding: 10px 26px;
     font-size: 11px;
   }
 
