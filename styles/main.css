@@ -628,6 +628,22 @@ footer {
   color: #d1d1cc;
 }
 
+.footer-credit {
+  margin-top: 12px;
+  font-size: 11px;
+  color: #a89888;
+}
+
+.footer-credit a {
+  color: #a89888;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-credit a:hover {
+  color: #d4c5bd;
+}
+
 /* ========== RESPONSIVE DESIGN ========== */
 @media (max-width: 1024px) {
   .header-container {
@@ -896,6 +912,11 @@ footer {
     padding-top: 20px;
     font-size: 11px;
   }
+
+  .footer-credit {
+    font-size: 10px;
+    margin-top: 10px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1056,5 +1077,10 @@ footer {
     margin-top: 24px;
     padding-top: 16px;
     font-size: 10px;
+  }
+
+  .footer-credit {
+    font-size: 9px;
+    margin-top: 8px;
   }
 }
