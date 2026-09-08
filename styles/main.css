@@ -694,11 +694,11 @@ footer {
   }
 
   .logo {
-    font-size: 24px;
+    font-size: 28px;
     letter-spacing: 3px;
     width: 100%;
     text-align: center;
-    padding: 8px 0;
+    padding: 12px 0;
   }
 
   .nav-center {
@@ -719,9 +719,7 @@ footer {
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 16px 0;
-    border-top: 1px solid #d4c5bd;
-    border-bottom: 1px solid #d4c5bd;
+    padding: 0;
   }
 
   nav.active {
@@ -736,6 +734,15 @@ footer {
     align-items: center;
     width: 100%;
     justify-content: center;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  nav.active ul {
+    max-height: 300px;
+    opacity: 1;
   }
 
   nav li {
@@ -745,7 +752,7 @@ footer {
   }
 
   nav li:first-child {
-    border-top: 1px solid #d4c5bd;
+    border-top: none;
   }
 
   nav li:last-child {
@@ -765,7 +772,7 @@ footer {
 
   .mobile-cta-row {
     display: block;
-    padding: 12px 20px;
+    padding: 16px 20px;
     border-top: 1px solid #d4c5bd;
     text-align: center;
   }
@@ -775,6 +782,11 @@ footer {
     padding: 12px 32px;
     font-size: 12px;
     width: auto;
+  }
+
+  /* Add top border to nav when menu opens */
+  nav ul {
+    border-top: 1px solid #d4c5bd;
   }
 
   /* HERO */
@@ -890,9 +902,9 @@ footer {
   }
 
   .logo {
-    font-size: 20px;
+    font-size: 24px;
     letter-spacing: 2px;
-    padding: 8px 0;
+    padding: 10px 0;
   }
 
   .header-container {
@@ -900,11 +912,15 @@ footer {
   }
 
   nav {
-    padding: 12px 0;
+    padding: 0;
+  }
+
+  nav ul {
+    border-top: 1px solid #d4c5bd;
   }
 
   .mobile-cta-row {
-    padding: 12px 16px;
+    padding: 14px 16px;
   }
 
   .btn-nav-cta-mobile {
