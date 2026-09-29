@@ -1,50 +1,20 @@
 /* ========== FONTS (Self-hosted) ========== */
+/* Variable font: one file covers weights 100-900 (and optical size) for all
+   body copy, nav, and button text set in Inter. */
 @font-face {
-  font-family: "Cormorant Garamond";
-  src: url("/assets/font/CormorantGaramond-400.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "Inter";
+  src: url("/assets/font/Inter-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
   font-display: swap;
 }
 
+/* Headline typeface: only the SemiBold weight is used (h1 and h2-h6). */
 @font-face {
-  font-family: "Cormorant Garamond";
-  src: url("/assets/font/CormorantGaramond-500.woff2") format("woff2");
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Cormorant Garamond";
-  src: url("/assets/font/CormorantGaramond-600.woff2") format("woff2");
+  font-family: "Jost";
+  src: url("/assets/font/Jost-SemiBold.woff2") format("woff2");
   font-weight: 600;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/assets/font/Inter-300.woff2") format("woff2");
-  font-weight: 300;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/assets/font/Inter-400.woff2") format("woff2");
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/assets/font/Inter-500.woff2") format("woff2");
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/assets/font/Inter-600.woff2") format("woff2");
-  font-weight: 600;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -71,6 +41,27 @@ body {
   font-size: 18px;
 }
 
+/* ========== BASE TYPOGRAPHY ========== */
+/* All body copy: Inter Regular, 18px, 28px line-height, 1px letter-spacing */
+p {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 1px;
+}
+
+/* All section headlines (h1 is sized/handled separately in the hero) */
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Jost", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+}
+
 /* ========== HEADER ========== */
 header {
   background-color: #f9f7f4;
@@ -94,10 +85,11 @@ header {
 }
 
 .logo {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Jost", sans-serif;
   font-size: 36px;
   font-weight: 600;
   letter-spacing: 4px;
+  text-transform: uppercase;
   color: #351d14;
   text-decoration: none;
   flex-shrink: 0;
@@ -244,22 +236,19 @@ nav {
 }
 
 .hero h1 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 72px;
+  font-family: "Jost", sans-serif;
+  font-size: 104px;
   font-weight: 600;
   letter-spacing: 2px;
+  text-transform: uppercase;
   color: #f9f7f4;
   margin-bottom: 32px;
   line-height: 1.2;
 }
 
 .hero .tagline {
-  font-size: 24px;
   color: #f9f7f4;
   margin-bottom: 48px;
-  font-weight: 300;
-  letter-spacing: 0.5px;
-  line-height: 1.5;
 }
 
 .btn-primary {
@@ -375,9 +364,6 @@ nav {
 }
 
 .about h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 48px;
-  font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 32px;
@@ -385,9 +371,7 @@ nav {
 }
 
 .about-text {
-  font-size: 18px;
   color: #f9f7f4;
-  line-height: 1.8;
   margin-bottom: 24px;
 }
 
@@ -425,9 +409,6 @@ nav {
 }
 
 .services h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 48px;
-  font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 80px;
   color: #351d14;
@@ -447,14 +428,10 @@ nav {
 }
 
 .service-category h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 32px;
-  font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 32px;
   color: #351d14;
   text-transform: uppercase;
-  font-size: 24px;
 }
 
 .service-table {
@@ -505,9 +482,6 @@ nav {
 }
 
 .gallery h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 48px;
-  font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 80px;
   color: #f9f7f4;
@@ -554,17 +528,12 @@ footer {
 }
 
 .footer-section h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 28px;
-  font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 24px;
   color: #f9f7f4;
 }
 
 .footer-section p {
-  font-size: 16px;
-  line-height: 1.8;
   margin-bottom: 12px;
   color: #d4c5bd;
 }
@@ -613,13 +582,11 @@ footer {
   padding-top: 40px;
   border-top: 1px solid #d4c5bd;
   text-align: center;
-  font-size: 12px;
   color: #d1d1cc;
 }
 
 .footer-credit {
   margin-top: 12px;
-  font-size: 11px;
   color: #a89888;
 }
 
@@ -650,11 +617,7 @@ footer {
   }
 
   .hero h1 {
-    font-size: 48px;
-  }
-
-  .hero .tagline {
-    font-size: 18px;
+    font-size: 72px;
   }
 
   .about-grid {
@@ -811,13 +774,12 @@ footer {
   }
 
   .hero h1 {
-    font-size: 36px;
+    font-size: 56px;
     margin-bottom: 20px;
     line-height: 1.2;
   }
 
   .hero .tagline {
-    font-size: 18px;
     margin-bottom: 32px;
   }
 
@@ -839,12 +801,10 @@ footer {
   }
 
   .about h2 {
-    font-size: 32px;
     margin-bottom: 24px;
   }
 
   .about-text {
-    font-size: 16px;
     margin-bottom: 16px;
   }
 
@@ -859,7 +819,6 @@ footer {
   }
 
   .services h2 {
-    font-size: 32px;
     margin-bottom: 40px;
   }
 
@@ -869,7 +828,6 @@ footer {
   }
 
   .gallery h2 {
-    font-size: 32px;
     margin-bottom: 40px;
   }
 
@@ -889,22 +847,15 @@ footer {
   }
 
   .footer-section h3 {
-    font-size: 22px;
     margin-bottom: 16px;
-  }
-
-  .footer-section p {
-    font-size: 15px;
   }
 
   .footer-bottom {
     margin-top: 30px;
     padding-top: 20px;
-    font-size: 11px;
   }
 
   .footer-credit {
-    font-size: 10px;
     margin-top: 10px;
   }
 }
@@ -946,14 +897,12 @@ footer {
   }
 
   .hero h1 {
-    font-size: 28px;
+    font-size: 40px;
     margin-bottom: 16px;
   }
 
   .hero .tagline {
-    font-size: 16px;
     margin-bottom: 28px;
-    line-height: 1.5;
   }
 
   .btn-primary {
@@ -973,14 +922,11 @@ footer {
   }
 
   .about h2 {
-    font-size: 28px;
     margin-bottom: 20px;
   }
 
   .about-text {
-    font-size: 15px;
     margin-bottom: 14px;
-    line-height: 1.6;
   }
 
   .about-image {
@@ -996,7 +942,6 @@ footer {
   }
 
   .services h2 {
-    font-size: 28px;
     margin-bottom: 32px;
   }
 
@@ -1006,7 +951,6 @@ footer {
   }
 
   .gallery h2 {
-    font-size: 28px;
     margin-bottom: 32px;
   }
 
@@ -1032,13 +976,7 @@ footer {
   }
 
   .footer-section h3 {
-    font-size: 20px;
     margin-bottom: 14px;
-  }
-
-  .footer-section p {
-    font-size: 14px;
-    margin-bottom: 10px;
   }
 
   .social-links {
@@ -1060,11 +998,9 @@ footer {
   .footer-bottom {
     margin-top: 24px;
     padding-top: 16px;
-    font-size: 10px;
   }
 
   .footer-credit {
-    font-size: 9px;
     margin-top: 8px;
   }
 }
