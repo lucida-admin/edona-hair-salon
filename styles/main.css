@@ -1,50 +1,20 @@
 /* ========== FONTS (Self-hosted) ========== */
+/* Variable font: one file covers weights 100-900 (and optical size) for all
+   body copy, nav, and button text set in Inter. */
 @font-face {
-  font-family: "Cormorant Garamond";
-  src: url("/assets/font/CormorantGaramond-400.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "Inter";
+  src: url("/assets/font/Inter-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
   font-display: swap;
 }
 
+/* Headline typeface: only the SemiBold weight is used (h1 and h2-h6). */
 @font-face {
-  font-family: "Cormorant Garamond";
-  src: url("/assets/font/CormorantGaramond-500.woff2") format("woff2");
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Cormorant Garamond";
-  src: url("/assets/font/CormorantGaramond-600.woff2") format("woff2");
+  font-family: "Jost";
+  src: url("/assets/font/Jost-SemiBold.woff2") format("woff2");
   font-weight: 600;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/assets/font/Inter-300.woff2") format("woff2");
-  font-weight: 300;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/assets/font/Inter-400.woff2") format("woff2");
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/assets/font/Inter-500.woff2") format("woff2");
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/assets/font/Inter-600.woff2") format("woff2");
-  font-weight: 600;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -71,6 +41,27 @@ body {
   font-size: 18px;
 }
 
+/* ========== BASE TYPOGRAPHY ========== */
+/* All body copy: Inter Regular, 18px, 28px line-height, 1px letter-spacing */
+p {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 1px;
+}
+
+/* All section headlines (h1 is sized/handled separately in the hero) */
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Jost", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+}
+
 /* ========== HEADER ========== */
 header {
   background-color: #f9f7f4;
@@ -94,21 +85,27 @@ header {
 }
 
 .logo {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Jost", sans-serif;
   font-size: 36px;
   font-weight: 600;
   letter-spacing: 4px;
+  text-transform: uppercase;
   color: #351d14;
   text-decoration: none;
   flex-shrink: 0;
   min-width: fit-content;
 }
 
+/* RIGHT: Nav menu + CTA grouped together */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
 .nav-center {
   display: flex;
   align-items: center;
-  flex: 1;
-  justify-content: center;
 }
 
 nav ul {
@@ -212,10 +209,15 @@ nav {
   text-align: center;
   padding: 80px 40px;
   background-color: #351d14;
+  background-image: url("/assets/imgs/EDONA_StylisticHero_Approved.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
 }
 
+/* Primary brown overlay at 50% opacity over the hero background image */
 .hero::before {
   content: "";
   position: absolute;
@@ -223,17 +225,7 @@ nav {
   left: 0;
   right: 0;
   bottom: 0;
-  background:
-    radial-gradient(
-      circle at 20% 50%,
-      rgba(255, 255, 255, 0.05) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(255, 255, 255, 0.05) 0%,
-      transparent 50%
-    );
+  background-color: rgba(53, 29, 20, 0.5);
   pointer-events: none;
 }
 
@@ -244,32 +236,19 @@ nav {
 }
 
 .hero h1 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 72px;
+  font-family: "Jost", sans-serif;
+  font-size: 104px;
   font-weight: 600;
   letter-spacing: 2px;
+  text-transform: uppercase;
   color: #f9f7f4;
   margin-bottom: 32px;
   line-height: 1.2;
 }
 
 .hero .tagline {
-  font-size: 24px;
   color: #f9f7f4;
   margin-bottom: 48px;
-  font-weight: 300;
-  letter-spacing: 0.5px;
-  line-height: 1.5;
-}
-
-.hero .credentials {
-  font-size: 13px;
-  color: #f9f7f4;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 48px;
-  font-weight: 600;
-  opacity: 1;
 }
 
 .btn-primary {
@@ -371,9 +350,7 @@ nav {
 /* ========== ABOUT SECTION ========== */
 .about {
   padding: 120px 40px;
-  background-color: #f9f7f4;
-  max-width: 1400px;
-  margin: 0 auto;
+  background-color: #351d14;
 }
 
 .about-grid {
@@ -387,18 +364,14 @@ nav {
 }
 
 .about h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 48px;
-  font-weight: 600;
   letter-spacing: 1px;
+  text-transform: uppercase;
   margin-bottom: 32px;
-  color: #351d14;
+  color: #f9f7f4;
 }
 
 .about-text {
-  font-size: 18px;
-  color: #351d14;
-  line-height: 1.8;
+  color: #f9f7f4;
   margin-bottom: 24px;
 }
 
@@ -436,9 +409,6 @@ nav {
 }
 
 .services h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 48px;
-  font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 80px;
   color: #351d14;
@@ -458,14 +428,10 @@ nav {
 }
 
 .service-category h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 32px;
-  font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 32px;
   color: #351d14;
   text-transform: uppercase;
-  font-size: 24px;
 }
 
 .service-table {
@@ -516,9 +482,6 @@ nav {
 }
 
 .gallery h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 48px;
-  font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 80px;
   color: #f9f7f4;
@@ -548,6 +511,119 @@ nav {
   display: block;
 }
 
+/* ========== LEGAL / POLICY PAGES ========== */
+.legal-hero {
+  padding: 100px 40px 60px;
+  background-color: #351d14;
+  text-align: center;
+}
+
+.legal-hero h1 {
+  font-family: "Jost", sans-serif;
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #f9f7f4;
+  margin-bottom: 16px;
+}
+
+.legal-hero .updated {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #d4c5bd;
+  font-weight: 500;
+}
+
+.legal-content {
+  padding: 100px 40px;
+}
+
+.legal-content-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.legal-back-link {
+  display: inline-block;
+  margin-bottom: 48px;
+  color: #351d14;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border-bottom: 1px solid #d4c5bd;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.legal-back-link:hover {
+  color: #a89888;
+  border-color: #a89888;
+}
+
+.legal-content-inner h2 {
+  margin-top: 56px;
+  margin-bottom: 20px;
+  color: #351d14;
+}
+
+.legal-content-inner h2:first-of-type {
+  margin-top: 0;
+}
+
+.legal-content-inner h3 {
+  font-size: 22px;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  color: #351d14;
+}
+
+.legal-content-inner p {
+  margin-bottom: 20px;
+  color: #351d14;
+}
+
+.legal-content-inner ul,
+.legal-content-inner ol {
+  margin: 0 0 20px 24px;
+}
+
+.legal-content-inner li {
+  margin-bottom: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 1px;
+  color: #351d14;
+}
+
+.legal-content-inner a {
+  color: #351d14;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-content-inner a:hover {
+  color: #a89888;
+}
+
+.legal-callout {
+  background-color: rgba(212, 197, 189, 0.25);
+  border-left: 4px solid #351d14;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.legal-callout p {
+  margin-bottom: 0;
+}
+
+.legal-callout p + p {
+  margin-top: 16px;
+}
+
 /* ========== FOOTER ========== */
 footer {
   background-color: #351d14;
@@ -565,17 +641,12 @@ footer {
 }
 
 .footer-section h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 28px;
-  font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 24px;
   color: #f9f7f4;
 }
 
 .footer-section p {
-  font-size: 16px;
-  line-height: 1.8;
   margin-bottom: 12px;
   color: #d4c5bd;
 }
@@ -624,13 +695,30 @@ footer {
   padding-top: 40px;
   border-top: 1px solid #d4c5bd;
   text-align: center;
-  font-size: 12px;
   color: #d1d1cc;
+}
+
+.footer-legal-links {
+  margin-top: 16px;
+}
+
+.footer-legal-links a {
+  color: #d4c5bd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-legal-links a:hover {
+  color: #f9f7f4;
+}
+
+.footer-legal-links .footer-legal-sep {
+  color: #a89888;
+  margin: 0 8px;
 }
 
 .footer-credit {
   margin-top: 12px;
-  font-size: 11px;
   color: #a89888;
 }
 
@@ -661,11 +749,19 @@ footer {
   }
 
   .hero h1 {
-    font-size: 48px;
+    font-size: 72px;
   }
 
-  .hero .tagline {
-    font-size: 18px;
+  .legal-hero {
+    padding: 90px 30px 50px;
+  }
+
+  .legal-hero h1 {
+    font-size: 44px;
+  }
+
+  .legal-content {
+    padding: 80px 30px;
   }
 
   .about-grid {
@@ -705,7 +801,7 @@ footer {
     top: 16px;
   }
 
-  /* Mobile Layout: Stack into 3 rows */
+  /* Mobile Layout: Stack into 2 rows */
   .header-container {
     flex-direction: column;
     gap: 0;
@@ -719,6 +815,12 @@ footer {
     width: 100%;
     text-align: center;
     padding: 12px 0;
+  }
+
+  .nav-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
   }
 
   .nav-center {
@@ -816,19 +918,34 @@ footer {
   }
 
   .hero h1 {
-    font-size: 36px;
+    font-size: 56px;
     margin-bottom: 20px;
     line-height: 1.2;
   }
 
   .hero .tagline {
-    font-size: 18px;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
 
-  .hero .credentials {
-    font-size: 12px;
-    margin-bottom: 32px;
+  .legal-hero {
+    padding: 70px 20px 40px;
+  }
+
+  .legal-hero h1 {
+    font-size: 32px;
+  }
+
+  .legal-content {
+    padding: 60px 20px;
+  }
+
+  .legal-content-inner h2 {
+    margin-top: 40px;
+    margin-bottom: 16px;
+  }
+
+  .legal-callout {
+    padding: 20px;
   }
 
   .btn-primary {
@@ -849,12 +966,10 @@ footer {
   }
 
   .about h2 {
-    font-size: 32px;
     margin-bottom: 24px;
   }
 
   .about-text {
-    font-size: 16px;
     margin-bottom: 16px;
   }
 
@@ -869,7 +984,6 @@ footer {
   }
 
   .services h2 {
-    font-size: 32px;
     margin-bottom: 40px;
   }
 
@@ -879,7 +993,6 @@ footer {
   }
 
   .gallery h2 {
-    font-size: 32px;
     margin-bottom: 40px;
   }
 
@@ -899,22 +1012,15 @@ footer {
   }
 
   .footer-section h3 {
-    font-size: 22px;
     margin-bottom: 16px;
-  }
-
-  .footer-section p {
-    font-size: 15px;
   }
 
   .footer-bottom {
     margin-top: 30px;
     padding-top: 20px;
-    font-size: 11px;
   }
 
   .footer-credit {
-    font-size: 10px;
     margin-top: 10px;
   }
 }
@@ -956,20 +1062,37 @@ footer {
   }
 
   .hero h1 {
-    font-size: 28px;
+    font-size: 40px;
     margin-bottom: 16px;
   }
 
   .hero .tagline {
-    font-size: 16px;
-    margin-bottom: 20px;
-    line-height: 1.5;
+    margin-bottom: 28px;
   }
 
-  .hero .credentials {
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    margin-bottom: 28px;
+  .legal-hero {
+    padding: 56px 16px 32px;
+  }
+
+  .legal-hero h1 {
+    font-size: 26px;
+  }
+
+  .legal-content {
+    padding: 50px 16px;
+  }
+
+  .legal-content-inner h2 {
+    margin-top: 32px;
+    margin-bottom: 14px;
+  }
+
+  .legal-content-inner h3 {
+    font-size: 19px;
+  }
+
+  .legal-callout {
+    padding: 16px;
   }
 
   .btn-primary {
@@ -989,14 +1112,11 @@ footer {
   }
 
   .about h2 {
-    font-size: 28px;
     margin-bottom: 20px;
   }
 
   .about-text {
-    font-size: 15px;
     margin-bottom: 14px;
-    line-height: 1.6;
   }
 
   .about-image {
@@ -1012,7 +1132,6 @@ footer {
   }
 
   .services h2 {
-    font-size: 28px;
     margin-bottom: 32px;
   }
 
@@ -1022,7 +1141,6 @@ footer {
   }
 
   .gallery h2 {
-    font-size: 28px;
     margin-bottom: 32px;
   }
 
@@ -1048,13 +1166,7 @@ footer {
   }
 
   .footer-section h3 {
-    font-size: 20px;
     margin-bottom: 14px;
-  }
-
-  .footer-section p {
-    font-size: 14px;
-    margin-bottom: 10px;
   }
 
   .social-links {
@@ -1076,11 +1188,9 @@ footer {
   .footer-bottom {
     margin-top: 24px;
     padding-top: 16px;
-    font-size: 10px;
   }
 
   .footer-credit {
-    font-size: 9px;
     margin-top: 8px;
   }
 }

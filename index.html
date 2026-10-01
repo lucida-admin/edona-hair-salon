@@ -100,15 +100,24 @@
       rel="preload"
       as="font"
       type="font/woff2"
-      href="/assets/font/CormorantGaramond-600.woff2"
+      href="/assets/font/Jost-SemiBold.woff2"
       crossorigin
     />
     <link
       rel="preload"
       as="font"
       type="font/woff2"
-      href="/assets/font/Inter-400.woff2"
+      href="/assets/font/Inter-Variable.woff2"
       crossorigin
+    />
+
+    <!-- Performance: Preload hero background image (LCP) -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      href="/assets/imgs/EDONA_StylisticHero_Approved.avif"
+      fetchpriority="high"
     />
 
     <!-- Favicon and Apple Touch Icon -->
@@ -316,32 +325,39 @@
     <header>
       <div class="header-container">
         <!-- LEFT: Logo -->
-        <a href="#home" class="logo">edonahair</a>
+        <a href="#home" class="logo">Edona Hair</a>
 
-        <!-- CENTER: Nav Menu -->
-        <nav id="navMenu" class="nav-center">
-          <button
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Toggle navigation menu"
-            aria-expanded="false"
-            aria-controls="navMenu"
+        <!-- RIGHT: Nav Menu + CTA -->
+        <div class="nav-actions">
+          <nav id="navMenu" class="nav-center">
+            <button
+              class="menu-toggle"
+              id="menuToggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="navMenu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li class="nav-cta-item">
+                <a href="#services" class="btn-nav-cta btn-nav-cta-mobile"
+                  >Book Now</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <a href="#services" class="btn-nav-cta btn-nav-cta-desktop"
+            >Book Now</a
           >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li class="nav-cta-item"><a href="#services" class="btn-nav-cta btn-nav-cta-mobile">Book Now</a></li>
-          </ul>
-        </nav>
-
-        <!-- RIGHT: CTA Button (Desktop only) -->
-        <a href="#services" class="btn-nav-cta btn-nav-cta-desktop">Book Now</a>
+        </div>
       </div>
     </header>
 
@@ -349,13 +365,10 @@
       <!-- HERO SECTION -->
       <section id="home" class="hero">
         <div class="hero-content">
-          <h1>edonahair</h1>
+          <h1>Edona Hair</h1>
           <p class="tagline">
-            Specializing in precision cuts, dynamic color, and curly hair that
-            feels completely you
-          </p>
-          <p class="credentials">
-            Vidal Sassoon-trained • Redken Artist • Now booking in Honolulu
+            Vidal Sassoon-trained • Redken Artist • Specializing in dynamic
+            color and curly hair • Now booking in Honolulu
           </p>
           <a href="#services" class="btn-primary">Book Now</a>
         </div>
@@ -365,7 +378,7 @@
       <section id="about" class="about">
         <div class="about-grid">
           <div>
-            <h2>Hi! I'm Edona.</h2>
+            <h2>I'm Edona. Nice to see you.</h2>
             <p class="about-text">
               I'm a second-generation stylist raised in my mom's hair salon in
               Austria. Watching her, I learned that truly great hair is more
@@ -386,8 +399,8 @@
               When I'm not in the salon, you can find me outdoors, staying
               active, and spending time with friends.
             </p>
-            <div style="margin-top: 48px;">
-              <a href="#services" class="btn-primary-dark">Book Now</a>
+            <div style="margin-top: 48px">
+              <a href="#services" class="btn-primary">Book Now</a>
             </div>
           </div>
         </div>
@@ -585,9 +598,20 @@
 
       <div class="footer-bottom">
         <p>&copy; 2026 Edona Hair Salon. All rights reserved.</p>
+        <p class="footer-legal-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span class="footer-legal-sep" aria-hidden="true">&middot;</span>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        </p>
         <p class="footer-credit">
-          By <a href="https://wearelucida.co" target="_blank" rel="noopener noreferrer">Lúcida</a> -
-          <a href="mailto:admin@wearelucida.co">admin@wearelucida.co</a> -
+          By
+          <a
+            href="https://wearelucida.co"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Lúcida</a
+          >
+          - <a href="mailto:admin@wearelucida.co">admin@wearelucida.co</a> -
           <a href="tel:+19726321095">+1 972-632-1095</a>
         </p>
       </div>
