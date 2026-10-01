@@ -511,6 +511,38 @@ nav {
   display: block;
 }
 
+/* ========== OPT-IN FORM SECTION ========== */
+.opt-in-form {
+  padding: 120px 40px;
+  background-color: #f9f7f4;
+}
+
+.opt-in-form-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.opt-in-copy h2 {
+  margin-bottom: 24px;
+  color: #351d14;
+}
+
+.opt-in-copy p {
+  color: #351d14;
+}
+
+.opt-in-form-container {
+  height: 654px;
+}
+
+.opt-in-form-container iframe {
+  display: block;
+}
+
 /* ========== LEGAL / POLICY PAGES ========== */
 .legal-hero {
   padding: 100px 40px 60px;
@@ -777,6 +809,11 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .opt-in-form-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
   .footer-container {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1001,6 +1038,11 @@ footer {
     gap: 15px;
   }
 
+  /* OPT-IN FORM */
+  .opt-in-form {
+    padding: 60px 20px;
+  }
+
   /* FOOTER */
   footer {
     padding: 40px 20px;
@@ -1153,6 +1195,11 @@ footer {
     aspect-ratio: 3/4;
     border-radius: 6px;
     border: 6px solid #f9f7f4;
+  }
+
+  /* OPT-IN FORM */
+  .opt-in-form {
+    padding: 50px 16px;
   }
 
   /* FOOTER */
