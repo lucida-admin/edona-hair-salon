@@ -410,6 +410,7 @@ nav {
 
 .services h2 {
   letter-spacing: 1px;
+  text-transform: uppercase;
   margin-bottom: 80px;
   color: #351d14;
   text-align: center;
@@ -483,6 +484,7 @@ nav {
 
 .gallery h2 {
   letter-spacing: 1px;
+  text-transform: uppercase;
   margin-bottom: 80px;
   color: #f9f7f4;
   text-align: center;
@@ -527,6 +529,8 @@ nav {
 }
 
 .opt-in-copy h2 {
+  letter-spacing: 1px;
+  text-transform: uppercase;
   margin-bottom: 24px;
   color: #351d14;
 }
@@ -674,6 +678,7 @@ footer {
 
 .footer-section h3 {
   letter-spacing: 1px;
+  text-transform: uppercase;
   margin-bottom: 24px;
   color: #f9f7f4;
 }
